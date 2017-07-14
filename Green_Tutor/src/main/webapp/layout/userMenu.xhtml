@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:form>
+	<p:growl autoUpdate="true" />
+
+	<p:panelMenu style="width:200px">
+		<p:submenu label="Home Page">
+			<p:menuitem value="Home" outcome="/portal/userPortal"
+				icon="ui-icon-home" />
+		</p:submenu>
+		<p:submenu label="kid's info">
+			<p:menuitem value="Register Kid's info"
+				outcome="/portal/registerKidInfo.xhtml" icon="ui-icon-plus" />
+			<p:menuitem value="update info" outcome="/portal/updateKidInfo.xhtml"
+				icon="ui-icon-person" />
+		</p:submenu>
+		<p:submenu label="Menu Farm">
+			<p:menuitem value="Kid's Progress" outcome="/portal/userPortal"
+				icon="ui-icon-person" />
+			<p:menuitem value="Kid's Farm" outcome="/portal/userPortal"
+				icon="ui-icon-plus" />
+
+		</p:submenu>
+		<p:submenu label="Log out">
+			<p:menuitem value="logout" action="#{loginController.doLogout()}"></p:menuitem>
+		</p:submenu>
+
+		<p:separator />
+	</p:panelMenu>
+</h:form>
+
+</html>

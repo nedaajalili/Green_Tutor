@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Green Tutor</title>
+
+
+  <h:outputStylesheet library="css" name="style.css"  />
+</h:head>
+
+<h:body>
+	<div id="clouds">
+		<div class="cloud x1"></div>
+		<!-- Time for multiple clouds to dance around -->
+		<div class="cloud x2"></div>
+		<div class="cloud x3"></div>
+		<div class="cloud x4"></div>
+		<div class="cloud x5"></div>
+	</div>
+
+
+	<div class="container">
+
+
+		<div id="login">
+
+
+
+
+			<h:form>
+                 <p:growl id="growl" showDetail="true" sticky="true" />
+				<p>
+		              <span>Device Address:</span>
+					<p:inputText id="deviceMacAdress" value="#{registerController.deviceMacAdress}" label="device address"
+							required="true" requiredMessage="Device Address field is neccessary !" validatorMessage="INCORRECT FORMAT OF MAC ADDRESS ">
+                          <f:validateRegex pattern="\b([0-9a-fA-F]{2}:??){5}([0-9a-fA-F]{2})\b"/>
+							</p:inputText>
+				    </p>
+				<p>
+		              <span>username:</span>
+					<p:inputText id="username" value="#{registerController.username}" label="username"
+					              required="true" requiredMessage="username field is neccessary !">
+
+					              </p:inputText>
+				</p>
+				<p>
+			         <span>password:</span>
+
+			   <h:inputSecret id="password" value="#{registerController.password}" label="password"
+					required="true" requiredMessage="password field is neccessary !" >
+
+<!--                         <f:validateLength minimum="8" /> -->
+				</h:inputSecret>
+
+				</p>
+
+				<p:commandButton styleClass="jsfButton Mylogin" value="Register" action="#{registerController.registerUser()}"
+				update="growl"></p:commandButton>
+
+			</h:form>
+			<p>
+				Are you a member? <a href="/Green_Tutor/faces/login.xhtml"
+					class="blue">Sign in now</a><span class="fontawesome-arrow-right "></span>
+			</p>
+
+		</div>
+		<!-- end login -->
+
+	</div>
+
+
+
+</h:body>
+</html>
+
+
+

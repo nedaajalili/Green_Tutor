@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="../layout/templateUserPortal.xhtml">
+	<ui:define name="content">
+
+		<p:panel id="panel" header="Kid's Info Update">
+
+			<p:messages id="msgs" />
+			<h:form>
+Name:<br />
+				<h:inputText id="name" value="#{user.kidName}" label="Kid's name:"
+					required="true" requiredMessage="this field is neccessary !">
+					<f:validateLength minimum="2" />
+				</h:inputText>
+				<h:message for="name" styleClass="colori" />
+				<br />
+Gender:<br />
+				<h:selectOneMenu value="#{user.kidGender}">
+					<f:selectItem itemValue="M" itemLabel="Male" />
+					<f:selectItem itemValue="F" itemLabel="Female" />
+				</h:selectOneMenu>
+				<br />
+ Age:<br />
+				<h:inputText id="Age"  value="#{user.kidAge}" label="Kid's Age"
+					required="true" requiredMessage="this field is neccessary !">
+                       <f:convertNumber integerOnly="true" type="number" />
+				</h:inputText>
+				<h:message for="Age" styleClass="colori" />
+				<br />
+				<h:inputHidden value="#{user.username}"></h:inputHidden>
+
+				<h:commandButton value="Update" action="#{kidRegisterCtrl.update(user)}" />
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

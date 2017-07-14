@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="../layout/templateUserPortal.xhtml">
+	<ui:define name="content">
+		<p:growl id="growl" showDetail="true" sticky="true" />
+
+
+		<h1 style="text-align: center;">#{user.username} Welcome to your
+			home page</h1>
+
+		<h:outputText rendered="#{not (user.isValid()) }"
+			value="Please Register your kis's info"
+			style="color: red;font-size:50px">
+		</h:outputText>
+
+		<p:panelGrid rendered="#{(user.isValid()) }" columns="2" layout="grid">
+			<f:facet name="header">
+				Information Of   #{user.kidName}
+			</f:facet>
+			<h:outputText value="Name" />
+			<h:outputText value="#{user.kidName}" />
+			<h:outputText value="Age" />
+			<h:outputText value="#{user.kidAge}" />
+			<h:outputText value="Gender" />
+			<h:outputText value="#{user.kidGender}" />
+
+		</p:panelGrid>
+	</ui:define>
+</ui:composition>
+</html>
