@@ -21,12 +21,12 @@ public class LoginController {
 
 
 
-	private boolean logged;
+	
 	private long id;
 	private UserService userServices;
 
 	public LoginController() {
-		logged = false;
+		//logged = false;
 		userServices = new UserService();
 	}
 
@@ -54,13 +54,13 @@ public class LoginController {
 		this.password = password;
 	}
 
-	public boolean isLogged() {
+	/*public boolean isLogged() {
 		return logged;
 	}
 
 	public void setLogged(boolean logged) {
 		this.logged = logged;
-	}
+	}*/
 
 	public long getId() {
 		return id;
@@ -82,7 +82,7 @@ public class LoginController {
 
 		userServices.fillBean(user,u);
 
-		this.logged = true;
+	
 
 		setId(u.getId_User());
 
@@ -94,7 +94,7 @@ public class LoginController {
 
 
 	public String doLogout() {
-		this.logged = false;
+		//this.logged = false;
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "/login?faces-redirect=true";
 
